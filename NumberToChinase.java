@@ -3,40 +3,40 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class NumberToChinase {
-private static Scanner scanner;// ·½±ã»ñÈ¡¿ØÖÆÌ¨ÊäÈë
-private static String input;// ÊäÈëµÄÊı×Ö×Ö·û´®	      
+private static Scanner scanner;// æ–¹ä¾¿è·å–æ§åˆ¶å°è¾“å…¥
+private static String input;// è¾“å…¥çš„æ•°å­—å­—ç¬¦ä¸²	      
 public static void main(String[] args) {
-	  System.out.println("ÇëÊäÈëÒ»´®Êı×Ö£ºÈç1234£¬×î¶à5Î»");
+	  System.out.println("è¯·è¾“å…¥ä¸€ä¸²æ•°å­—ï¼šå¦‚1234ï¼Œæœ€å¤š5ä½");
       scanner = new Scanner(System.in);
       input = scanner.nextLine();
       System.out.println(getOutput(input));
 } 
-  // µ¥¸öÊı×ÖÖĞÎÄ±íÊ¾
+  // å•ä¸ªæ•°å­—ä¸­æ–‡è¡¨ç¤º
   private static String numbers[] = 
-  { "Áã", "Ò»", "¶ş", "Èı", "ËÄ", "Îå", "Áù", "Æß", "°Ë", "¾Å", "Ê®" };	     
+  { "é›¶", "ä¸€", "äºŒ", "ä¸‰", "å››", "äº”", "å…­", "ä¸ƒ", "å…«", "ä¹", "å" };	     
   private static String units[] = 
-  {  "" ,"Ê®", "°Ù", "Ç§", "Íò"};// µ¥Î»	        
-  // ½«Êı×Ö×Ö·û´®´®ÖĞµÄÃ¿¸öÊı×Ö×Ö·û°´ÕÕ´Ó×óµ½ÓÒµÄË³Ğò·ÅÈëÊı×é
+  {  "" ,"å", "ç™¾", "åƒ", "ä¸‡"};// å•ä½	        
+  // å°†æ•°å­—å­—ç¬¦ä¸²ä¸²ä¸­çš„æ¯ä¸ªæ•°å­—å­—ç¬¦æŒ‰ç…§ä»å·¦åˆ°å³çš„é¡ºåºæ”¾å…¥æ•°ç»„
   private static String result[];
  
-  //Ö÷Òª·½·¨
+  //ä¸»è¦æ–¹æ³•
   public static String getOutput(String input) 
   {
-      //ÅĞ¶ÏÊÇ·ñÎªÕûÊı
+      //åˆ¤æ–­æ˜¯å¦ä¸ºæ•´æ•°
 	  Pattern pattern = Pattern.compile("[0-9]*");
       Matcher isNum = pattern.matcher(input);
       if(!isNum.matches())
       {
-     	return "ÄãµÄÊäÈë°üº¬ÁË·ÇÊı×Ö·ûºÅ";   	 
+     	return "ä½ çš„è¾“å…¥åŒ…å«äº†éæ•°å­—ç¬¦å·";   	 
       }
-      //ÅĞ¶ÏÊäÈëµÄÎ»Êı
+      //åˆ¤æ–­è¾“å…¥çš„ä½æ•°
       if(input.length()>5)
       {
-          return "×î¶àÊäÈë5Î»Êı×Ö";
+          return "æœ€å¤šè¾“å…¥5ä½æ•°å­—";
       }
       StringBuffer sb = new StringBuffer();
       int back = 0;
-      result = new String[input.length()];// resultÊı×é³õÊ¼»¯
+      result = new String[input.length()];// resultæ•°ç»„åˆå§‹åŒ–
       for (int i = 0; i < result.length; i++) 
       {
           result[i] = String.valueOf(input.charAt(i));
@@ -47,8 +47,8 @@ public static void main(String[] args) {
           if (!result[i].equals("0")) 
           {
               back = result.length -i-1;	                
-              sb.append(numbers[Integer.parseInt(result[i])]);
-              sb.append(units[back]);
+              sb.append(numbers[Integer.parseInt(result[i])]);//æ·»åŠ æ•°å­—
+              sb.append(units[back]);//æ·»åŠ ä½æ•°
               System.out.println(sb+"1");
           }
            else if ( i<result.length-1 && !result[i + 1].equals("0"))                               
